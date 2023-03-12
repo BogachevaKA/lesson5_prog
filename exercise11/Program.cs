@@ -21,7 +21,7 @@ void FindSums(int [] array)
     for (int i=0; i<array.Length; i++)
         if (i % 2 > 0)
             sumP+=array[i];
-    Console.WriteLine($"Сумма числел, стоящих на нечётных позициях равна {sumP}");
+    Console.WriteLine($"Сумма чисел, стоящих на нечётных позициях равна {sumP}");
 }
 
 
