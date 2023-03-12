@@ -1,32 +1,31 @@
-﻿//Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿//Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет 
+//количество чётных чисел в массиве.
 //[345, 897, 568, 234] -> 2
 
-Console.WriteLine("Введите длину массива:  ");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
-RandonNumbers(numbers);
-PrintArray(numbers);
-void RandonNumbers(int[] numbers)
+void FillArray(int [] array)
 {
-    for (int i = 0; i < size; i++)
-    {
-        numbers[i] = new Random().Next(100, 1000);
-    }
+    for (int i=0; i<array.Length; i++)
+        array [i] = new Random().Next(100, 999);
 }
-int count = 0;
-for (int x = 0; x < numbers.Length; x++)
+
+void PrintArray(int [] array)
 {
-    if (numbers[x] % 2 == 0)
-        count++;
-}
-Console.WriteLine($"{count}");
-void PrintArray(int[] numbers)
-{
-    Console.Write("[");
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        Console.Write(numbers[i] + " ");
-    }
-    Console.Write("]");
+    foreach (var el in array)
+        Console.Write($"{el} ");
     Console.WriteLine();
 }
+
+void FindArray(int [] array)
+{
+    int cout = 0;
+    for (int i=0; i<array.Length; i++)
+        if (array[i]%2 == 0)
+            cout++;
+    Console.WriteLine($"Количество четных чисел в массиве {cout}");
+}
+
+
+int [] array = new int [5];
+FillArray(array);
+PrintArray(array);
+FindArray(array);
