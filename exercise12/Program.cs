@@ -1,55 +1,41 @@
 ﻿//Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 //[3 7 22 2 78] -> 76
 
-//Console.WriteLine("Введите размер массива  ");
-//int size = Convert.ToInt32(Console.ReadLine());
-void FillArray(int [] array)
+void FillArray(int[] array)
 {
-    for (int i=0; i<array.Length; i++)
-        array [i] = new Random().Next(-10,100);
+    for (int i = 0; i < array.Length; i++)
+        array[i] = new Random().Next(1, 100);
 }
 
-void PrintArray(int [] array)
+void PrintArray(int[] array)
 {
     foreach (var el in array)
         Console.Write($"{el} ");
     Console.WriteLine();
 }
 
-double[] numbers = new double[size];
-FillArrayRandomNumbers(numbers);
-PrintArray(numbers);
-double min = Int32.MaxValue;
-double max = Int32.MinValue;
-
-for (int z = 0; z < numbers.Length; z++)
+void FindArray(int[] array)
 {
-    if (numbers[z] > max)
+    int min = Int32.MaxValue;
+    int max = Int32.MinValue;
+    for (int i = 0; i < array.Length; i++)
     {
-        max = numbers[z];
-    }
-    if (numbers[z] < min)
-    {
-        min = numbers[z];
-    }
-}
-
-Console.WriteLine($"Максимальное значение = {max}, минимальное значение = {min}");
-Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
-
-void FillArrayRandomNumbers(double[] numbers)
-{
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        numbers[i] = Convert.ToDouble(new Random().Next(100, 1000)) / 100;
-    }
-}
-
-void PrintArray(double[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
+        if (array[i] > max)
         {
-            Console.Write(numbers[i] + " ");
+            max = array[i];
         }
-    Console.WriteLine();
+        if (array[i] < min)
+        {
+            min = array[i];
+        }
+    }
+    Console.WriteLine($"Максимальное значение = {max}, минимальное значение = {min}");
+    Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
 }
+
+
+
+int[] array = new int[4];
+FillArray(array);
+PrintArray(array);
+FindArray(array);
